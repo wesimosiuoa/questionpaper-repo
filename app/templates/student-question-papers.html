@@ -1,0 +1,44 @@
+{% include 'student-header.html'%}
+      <!-- Dashboard Content -->
+       <br><br>
+  <div class="container ">
+    {% include 'messages.html'%}
+    {% if question_papers%}
+        <h6> Question Papers </h6> <a style="text-align: right;" href=" {{url_for ('my_submission')}}"> My Submissions</a>
+        <table class="table">
+            <thead>
+                <th> # </th>
+                <th> Title </th>
+                <th> category </th>
+
+                <th>By </th>
+                <th>Course  </th>
+                <th> Created  </th>
+                <th>File </th>
+                <th>deadline</th>
+                <th>Download </th>
+            </thead>
+            <tbody>
+                {% for questions in question_papers %}
+
+                    <tr>
+                        <td>{{ questions.paper_id }}</td>
+                        <td>{{ questions.papername }}</td>
+                        <td>{{ questions.category }}</td>
+                     
+                        <td>{{ questions.fullname }}</td>
+                        <td>{{ questions.coursename }}</td>
+                        <td>{{ questions.created_at }}</td>
+                        <td>{{ questions.file }}</td>
+                        <td>{{ questions.deadline }}</td>
+                        <td><a href="{{ url_for('download', filename = questions.file)}}"> Download </a></td>
+                    </tr>
+                {% endfor%}
+            </tbody>
+        </table>
+        {% else %}
+
+        <center> <h4> NO data found </h4></center>
+    {% endif %}
+  </div>
+{% include 'footer.html'%}

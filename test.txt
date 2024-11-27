@@ -1,0 +1,29 @@
+
+<!-- <div class="col-md-4">
+                <h6> Add new course </h6>
+                <form action="/course_management" method="POST">
+    
+                    <div class="form-group">
+                        <label for="coursename"> Subject name </label>
+                        <input type="text" name="name" id="" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="coursename"> Description  </label>
+                        <textarea name="Description" id="" class="form-control"> </textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="coursename"> Subject name </label>
+                        <select name="Teacher" id="" class="form-control">
+                            <option  value=" "> -- select --</option>
+                            {% for user in users %}
+                                <option value="{{ user.user_id}}"> {{ user.fullname }} </option>
+                            {%endfor%}
+                        </select>
+                    </div>
+                    <br>    
+                    <button type="submit" name="submit" class="btn btn-primary"> Add Course </button>
+                    <br><br>
+                </form>
+            </div> -->
+
+            <FileStorage: 'CV_2024100423420983-1.pdf' ('application/pdf')>

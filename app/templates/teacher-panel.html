@@ -1,0 +1,96 @@
+{%include 'teacher-header.html'%} <!-- Dashboard Main Content -->
+ <div class="container mt-5">
+    <h3 class="mb-4">Teacher Dashboard</h3>
+
+    <!-- Overview Cards -->
+    <div class="row">
+      <!-- Uploaded Papers Card -->
+      <div class="col-md-3">
+        <div class="card text-white bg-primary mb-3">
+          <div class="card-body">
+            <h5 class="card-title"><a href=" {{ url_for('uploaded_questions')}}" style="color: #fff">Uploaded Papers</a></h5>
+            <p class="card-text">Total: {{ number_of_question_papers }}</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Student Submissions Card -->
+      <div class="col-md-3">
+        <div class="card text-white bg-success mb-3">
+          <div class="card-body">
+            <h5 class="card-title">Student Submissions</h5>
+            <p class="card-text">Pending: {{_submitted_question_papers}}</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Grading Tasks Card -->
+      <div class="col-md-3">
+        <div class="card text-white bg-warning mb-3">
+          <div class="card-body">
+            <h5 class="card-title">Grading Tasks</h5>
+            <p class="card-text">Pending: 6</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feedback Provided Card -->
+      <div class="col-md-3">
+        <div class="card text-white bg-info mb-3">
+          <div class="card-body">
+            <h5 class="card-title">Feedback Provided</h5>
+            <p class="card-text">Completed: 10</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Detailed Sections -->
+    <div class="row">
+      <!-- Upload Question Papers Section -->
+      <div class="col-md-6">
+        <div class="card mb-4">
+          <div class="card-header">
+            <h5>Upload Question Papers</h5>
+          </div>
+          <div class="card-body">
+            <a href="{{ url_for ('upload')}}" class="btn btn-primary">  Upload Question </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grading Section -->
+      <div class="col-md-6">
+        <div class="card mb-4">
+          <div class="card-header">
+            <h5>Grading Submissions</h5>
+          </div>
+          <div class="card-
+          body">
+            <button class="btn btn-warning">View Submissions</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recent Activities Section -->
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card mb-4">
+          <div class="card-header">
+            <h5>Recent Activities</h5>
+          </div>
+          <div class="card-body">
+            <ul class="list-group">
+              <li class="list-group-item">Graded 5 student assignments</li>
+              <li class="list-group-item">Uploaded final exam question paper</li>
+              <li class="list-group-item">Provided feedback on student essays</li>
+              <li class="list-group-item">Reviewed 3 new student submissions</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {%include 'footer.html'%}

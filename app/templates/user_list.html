@@ -1,0 +1,27 @@
+<h4> List of users </h4>
+                    
+                    <table class="table"> 
+                        <thead>
+                            <th scope="col"> #</th>
+                            <th scope="col"> Fullname </th>
+                            <th scope="col"> Email</th>
+                            <th scope="col"> Role ID</th>
+                            <th scope="col"> Role  </th>
+                            <th scope="col"> Del  </th>
+                            <th scope="col"> Update  </th>
+                        </thead>
+                        <tbody>
+                            {% for user in users %}
+                                <tr>
+                                    <td> {{ user.user_id }}</td>
+                                    <td> {{ user.fullname }}</td>
+                                    <td> {{ user.email }}</td>
+                                    <td> {{ user.role_id }}</td>
+                                    <td> {{ user.role_name }}</td>
+                                    <td> <a href="#deleteuser" class="btn btn-danger"> <i class="fas fa-trash-alt"></i> </a></td>
+                                    <td> <a href="#updateuser" class="btn btn-warning"> <i class="fas fa-edit"></i> </a></td>
+                                </tr>
+                            {% endfor%}
+                        </tbody>
+                    </table>
+                    

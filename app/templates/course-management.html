@@ -1,0 +1,37 @@
+{% include 'admin-header.html'%}
+    <div class="container">
+
+        {% include 'messages.html' %}
+        <h3> Course management Centre </h3>
+        <div class="row">
+            <!-- <div class="col-md-8"> -->
+                <h6> All courses </h6> <a href="{{ url_for ('new_course')}}" class="btn btn-primary"> New Course </a>
+                <table class="table">
+                    <thead>
+                        <th scope="col"> Course ID </th>
+                        <th scope="col"> Title </th>
+                        <th scope="col"> Description </th>
+                        <th scope="col"> Teacher </th>
+                        <th scope="col"> Creation Date </th>
+                        <th scope="col"> Del </th>
+                        
+                    </thead>
+                    <tbody>
+                        {% for course in courses %}
+                            <tr>
+                                <td> {{ course.course_id }}</td>
+                                <td> {{ course.title }}</td>
+                                <td> {{ course.description }}</td>
+                                <td> {{ course.fullname }}</td>
+                                <td> {{ course.created_at }}</td>
+                                <td> <a href=" {{ url_for ('delete_course', course_id = course.course_id)}}"> <i class="fas fa-trash-alt text-danger"></i> </a></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                    
+                </table>
+            <!-- </div> -->
+            
+        </div>
+    </div>
+{% include 'footer.html'%}

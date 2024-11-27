@@ -1,0 +1,37 @@
+{% include 'student-header.html'%}
+      <!-- Dashboard Content -->
+       <br><br>
+
+    <div class="container">
+        <h6> All submissions i made </h6>
+        {% if my_submission %}
+
+            <table class="table">
+                <thead>
+                    <th> # </th>
+                    <th>Paper </th>
+                    <th> Date </th>
+                    <th> status </th>
+                    <th> File </th>
+                    <th> View </th>
+                </thead>
+                <tbody>
+                    {% for submission in my_submission %}
+                        <tr>
+                            <td>{{ submission.submission_id }}</td>
+                            <td>{{ submission.title  }}</td>
+                            <td>{{ submission.submitted_at }}</td>
+                            <td>{{ submission.status }}</td>
+                            <td>{{ submission.file_path }}</td>
+                            <td><a href="{{ url_for ('download_submission', filename = submission.file_path)}}" class="btn btn-primary"> View </a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <center> <h1 class="text-danger"> No submission</h1></center>
+        {%endif%}
+    </div>
+
+    <hr>
+{% include 'footer.html'%}

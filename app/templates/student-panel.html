@@ -1,0 +1,83 @@
+{% include 'student-header.html'%}
+      <!-- Dashboard Content -->
+  <div class="container mt-5 pt-4">
+    {% include 'messages.html'%}
+    <div class="row">
+      <!-- Left Section: Upcoming Deadlines -->
+      <div class="col-lg-6 mb-4">
+        <div class="card shadow-sm">
+          <div class="card-header bg-primary text-white">
+            <i class="fas fa-calendar-alt"></i> Upcoming Deadlines 
+          </div>
+          <div class="card-body">
+            {% if upcoming_tasks %}
+              <ul class="list-group">
+                {% for task in upcoming_tasks %}
+                  <li class="list-group-item">
+                    <strong>{{ task.title }}</strong><br>
+                    Due: {{ task.deadline }}<br>
+                    <a href="{{ url_for('download', filename=task.file) }}"> Download </a><br>
+                    <small>{{ task.instructions }}</small>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% else %}
+              <p>No upcoming deadlines.</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Section: Recent Grades -->
+      <div class="col-lg-6 mb-4">
+        <div class="card shadow-sm">
+          <div class="card-header bg-success text-white">
+            <i class="fas fa-clipboard-check"></i> Recent Grades
+          </div>
+          <div class="card-body">
+            {% if recent_grades %}
+              <ul class="list-group">
+                {% for grade in recent_grades %}
+                  <li class="list-group-item">
+                    <strong>{{ grade.course }}</strong><br>
+                    Grade: {{ grade.grade }}<br>
+                    <small>Feedback: {{ grade.feedback }}</small>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% else %}
+              <p>No grades available yet.</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Middle Section: Discussion Forum Summary -->
+    <div class="row">
+      <div class="col-lg-12 mb-4">
+        <div class="card shadow-sm">
+          <div class="card-header bg-warning text-white">
+            <i class="fas fa-comments"></i> Recent Forum Discussions
+          </div>
+          <div class="card-body">
+            {% if forum_threads %}
+              <ul class="list-group">
+                {% for thread in forum_threads %}
+                  <li class="list-group-item">
+                    <a href="#">
+                      <strong>{{ thread.title }}</strong>
+                    </a><br>
+                    <small>{{ thread.author }} - {{ thread.created_at.strftime('%Y-%m-%d') }}</small>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% else %}
+              <p>No recent forum discussions.</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% include 'footer.html'%}

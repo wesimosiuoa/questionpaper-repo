@@ -1,0 +1,29 @@
+
+
+<br><br>
+{% include 'student-header.html' %}
+    {% include 'messages.html' %}
+    <div class="container">
+        <h6> Submit Here </h6>
+        <form action="/submit" method="post" enctype="multipart/form-data">
+            <div class="form-control">
+                <label for="question"> question </label>
+                <select name="question" id="" class="form-control"> 
+                    <option value=""></option>
+                    {% for question in question %}
+                    
+                        <option value="{{ question.paper_id }}"> {{ question.title }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-control">
+                <label for="file"> Add File  </label>
+                <input type="file" name="file" class="form-control" id="">
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary"> Submit </button>
+        </form>
+    </div>
+
+    <hr>
+{% include 'footer.html' %}

@@ -1,0 +1,79 @@
+{% include 'admin-header.html' %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Admin Dashboard</h1>
+    <div class="row">
+        <!-- User Management Card -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card dashboard-card bg-primary text-white">
+                
+                <div class="card-body text-center">
+                    <i class="fas fa-users"></i>
+                    <h5 class="card-title">User Management</h5>
+                    <p class="card-text">Manage user roles, profiles, and permissions.</p>
+                    <a href="{{ url_for ('users')}}" class="btn btn-light">Manage Users</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Course Management Card -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card dashboard-card bg-success text-white">
+                <div class="card-body text-center">
+                    <i class="fas fa-book"></i>
+                    <h5 class="card-title">Course Management</h5>
+                    <p class="card-text">Add, edit, or remove courses and their contents.</p>
+                    <a href="{{ url_for('get_teacher')}}" class="btn btn-light">Manage Courses</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reports Card -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card dashboard-card bg-warning text-white">
+                <div class="card-body text-center">
+                    <i class="fas fa-chart-line"></i>
+                    <h5 class="card-title">Reports</h5>
+                    <p class="card-text">View reports and analytics for system performance.</p>
+                    <a href="/#reports" class="btn btn-light">View Reports</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Settings Card -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card dashboard-card bg-info text-white">
+                <div class="card-body text-center">
+                    <i class="fas fa-cogs"></i>
+                    <h5 class="card-title">Settings</h5>
+                    <p class="card-text">Configure system settings and preferences.</p>
+                    <a href="/#settings" class="btn btn-light">Go to Settings</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Card -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card dashboard-card bg-danger text-white">
+                <div class="card-body text-center">
+                    <i class="fas fa-user"></i>
+                    <h5 class="card-title">Profile</h5>
+                    <p class="card-text">View or edit your admin profile.</p>
+                    <a href="/#profile" class="btn btn-light">View Profile</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Logout Card -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card dashboard-card bg-dark text-white">
+                <div class="card-body text-center">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <h5 class="card-title">Logout</h5>
+                    <p class="card-text">Sign out of the admin panel.</p>
+                    <a href="{{ url_for('logout')}}" class="btn btn-light">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% include 'footer.html'%}

@@ -1,0 +1,54 @@
+{% include 'teacher-header.html'%}
+        {% include 'messages.html'%}
+        <div class="container">
+            <h4> Upload Question Paper </h4>
+            
+            <form action="/upload_question" method="POST" enctype="multipart/form-data"> 
+                <!-- <div class="form-control"> -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="title"> Title </label>
+                            <input type="text" name="title" id="" class="form-control">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="Grade"> Grade </label>
+                            <input type="number" name="grade" class="form-control" id="">
+                        </div>
+                    </div>
+                    <div class="row">
+                    <div class="col-md-6">
+                        <label for="category"> Category </label>
+                        <select name="category" id="" class="form-control">
+                            <option value=""> --- </option>
+                            <option value="Monthly text"> Monthly Text</option>
+                            <option value="Quiz"> Quiz </option>
+                            <option value="Easter Text"> Easter Test </option>
+                            <option value="Mid Term"> Mid-Term </option>
+                            <option value="Final"> Final </option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="course_id"> Course </label>
+                        <select name="course_id" id="" class="form-control">
+                            <option value=""> --- </option>
+                            {% for course in courses %}
+                                <option value="{{ course.course_id }}"> {{course['title']}}</option>
+                                {{ course.course_id}}
+                            {% endfor %}
+                        </select>
+                        </div>
+                    </div>
+                    <label for="instruction"> Instruction </label>
+                    <textarea name="instruction" id="" class="form-control" rows="3"></textarea>
+                    <label for="file"> File </label>
+                    <input type="file" name="file" class="form-control" id="">
+                    <label for="date"> Date </label>
+                    <input type="date" name="date" class="form-control" id="">
+                    <br>
+                    <button type="submit" class="btn btn-primary"> Upload </button>
+                    
+                <!-- </div> -->
+            </form>
+        </div>
+        <hr>
+{% include 'footer.html'%}

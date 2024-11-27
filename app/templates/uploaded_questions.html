@@ -1,0 +1,38 @@
+{% include 'teacher-header.html'%}
+<br><br>
+<div class="container">
+    {% include 'messages.html'%}
+    <div class="row">
+        <!-- Loop through the list of question papers -->
+         <hr>
+         <h3>Question papers </h3>
+        {% for paper in question_papers %}
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Title : {{ paper.title }}  </h5>
+                    <p class="card-text">
+                        <strong>Subject:</strong> {{ paper['courses.title'] }}  <br>
+                        <strong>Grade:</strong> {{ paper.grade_level }} <br>
+                        <strong>Category:</strong> {{ paper.category }} <br>
+                        <strong>Description:</strong> {{ paper.instructions }} <br>
+                        <strong>Uploaded By:</strong> {{ paper.fullname }} <br>
+                        <strong>File Name </strong> {{ paper.file }}
+                        
+                    </p>
+                    
+                        <a href="{{ url_for('download', filename=paper.file) }}">{{ paper.file }}</a>
+
+                   
+
+                </div>
+                <div class="card-footer text-muted">
+                    <small>Uploaded on {{ paper.created_at.strftime('%Y-%m-%d') }} - <a href="{{ url_for('delete_question_paper', question_paper = paper.file)}}" > <i class="fas fa-trash-alt text-danger"></i> </a></small>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<hr>    
+{% include 'footer.html'%}

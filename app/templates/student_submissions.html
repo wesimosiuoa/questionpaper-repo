@@ -1,0 +1,43 @@
+{%include 'teacher-header.html'%} <!-- Dashboard Main Content -->
+    {% include 'messages.html' %}
+    <div class="container">
+        <h5> Student submissions </h5>
+        <hr>
+        {% if student_submissions %}
+            
+            
+                <table class="table">
+                    
+                    <thead>
+                        <th> # </th>
+                        <th> Submission Date </th>
+                        <th> Student # </th>
+                        <th> Question </th>
+                        <th> course </th>
+                        <th> File </th>
+                        <th> Mark </th>
+                    </thead>
+                    <body>
+                        {% for student_submission in student_submissions %}
+                        <tr>
+                            <td>{{ student_submission.submission_id}}</td>
+                            <td>{{ student_submission.submitted_at}}</td>
+                            <td>{{ student_submission.student_id}}</td>
+                            <td>{{ student_submission._questionpaper}}</td>
+                            <td>{{ student_submission._course}}</td>
+                            <td>{{ student_submission.file_path}}</td>
+                            <!-- <p>URL: {{ url_for('_download_submission', filename=student_submission.file_path, submission_number=student_submission.submission_id) }}</p> -->
+
+                            <td><a href="{{ url_for('_download_submission', filename = student_submission.file_path, submission_number = student_submission.submission_id)}}" > Download </a></td>
+                        </tr>
+                        {%endfor%}
+                    </body>
+                </table>
+            
+        {% else %}
+            <center> <h2 class="text-danger"> No submissions found </h2></center>
+        {% endif%}
+        <hr>
+    </div>
+
+  {%include 'footer.html'%}
